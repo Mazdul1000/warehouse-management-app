@@ -8,7 +8,7 @@ const useInventoryItems = () => {
         fetch('http://localhost:5000/bikes')
         .then(res => res.json())
         .then(data => setInventoryItems(data))
-    },[])
+    },[inventoryItems])
 
     return [inventoryItems, setInventoryItems];
 }

@@ -8,7 +8,19 @@ const ManageInventory = () => {
     const tableHeadTitles = ["Item Name", "Price", "Quantity","Supplier","Img","Delete"]
 
     const handleDeleteItem = id => {
-        
+        const proceed = window.confirm("Are you sure you want to delete this item?");
+        if(proceed){
+            console.log('deleting the item with id:',id);
+            const url = `http://localhost:5000/bike/${id}`;
+
+            fetch(url, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+        }
     }
 
     return (
@@ -28,7 +40,7 @@ const ManageInventory = () => {
                     {
                         inventoryItems.map((item,index) =>
                         
-                            <tr>
+                            <tr key={item._id}>
                                 <td>{index+1}</td>
                                 <td>{item.name}</td>
                                 <td>{item.price}</td>
