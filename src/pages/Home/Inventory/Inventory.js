@@ -3,13 +3,13 @@ import { Button, Card, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 const Inventory = ({ item }) => {
-    const {id, name, quantity, supplierName, price, img, description } = item;
+    const {_id, name, quantity, supplierName, price, img, description } = item;
+    console.log(item)
+    const navigate = useNavigate();
 
-    const navigate = useNavigate;
-
-    const navigateToSingleItem = (id) => {
-        navigate(`/inventory/${id}`)
-    }
+    const navigateToSingleItem = id =>{
+      navigate(`/inventory/${id}`);
+  }
     return (
 <Col>
 <Card>
@@ -20,11 +20,12 @@ const Inventory = ({ item }) => {
     <p>Price: {price}</p>   
     <p>Supplier Name: {supplierName}</p>
     <p>Quantity: {quantity}</p> 
+    <p>id: {_id}</p>
     </Card.Text>
     <Card.Text>
-     Description: {description.slice(0,100)}...<span className="fw-bold">See More</span>
+     Description: {description}...<span className="fw-bold">See More</span>
     </Card.Text>
-    <Button onClick={() => navigateToSingleItem(id)} variant='primary'>Update</Button>
+    <Button onClick={() => navigateToSingleItem(_id)} variant='primary'>Update</Button>
   </Card.Body>
 </Card>
 </Col>

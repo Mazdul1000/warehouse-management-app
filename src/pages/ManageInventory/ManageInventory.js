@@ -1,14 +1,20 @@
 import React from 'react';
-import { Table } from 'react-bootstrap';
+import { Button, Table } from 'react-bootstrap';
 import useInventoryItems from '../../hooks/useInventoryItems';
+import { TrashIcon } from '@heroicons/react/solid';
 
 const ManageInventory = () => {
     const [inventoryItems, setInventoryItems] = useInventoryItems();
     const tableHeadTitles = ["Item Name", "Price", "Quantity","Supplier","Img","Delete"]
 
+    const handleDeleteItem = id => {
+        
+    }
+
     return (
-        <div>
-            <h1>All Items</h1>
+        <div className='mx-5'>
+            <h1 className='text-center my-4'>All Items</h1>
+            <Button className='d-block ms-auto' variant='danger'>Add Items</Button>
             <Table responsive className='text-center'>
                 <thead>
                     <tr>
@@ -29,7 +35,7 @@ const ManageInventory = () => {
                                 <td>{item.quantity}</td>
                                 <td>{item.supplierName}</td>
                                 <td><img src={item.img} width="50" alt="" /></td>
-                                <td>Delete</td>
+                                <td><span><TrashIcon onClick={() => handleDeleteItem(item._id)} style={{width:'30px',cursor:'pointer',color:'lightgreen'}}></TrashIcon></span></td>
                             </tr>
                         )
                     }
