@@ -1,0 +1,20 @@
+.add-form{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+    column-gap: 40px;
+}
+
+.form-group{
+    height: 40px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.submit-btn{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+}

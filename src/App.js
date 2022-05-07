@@ -12,7 +12,8 @@ import NotFound from './pages/NotFound/NotFound';
 import RequireAuth from './pages/Login/RequireAuth/RequireAuth';
 import SingleItem from './pages/SingleItem/SingleItem';
 import AddItems from './pages/AddItems/AddItems';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -46,7 +47,7 @@ function App() {
        <Route path='/register' element={<Register></Register>}></Route>
        <Route path='*' element={<NotFound></NotFound>}></Route>
      </Routes>
-   
+    <ToastContainer></ToastContainer>
     </div> 
   );
 }

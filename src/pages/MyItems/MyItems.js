@@ -1,4 +1,6 @@
+import { async } from '@firebase/util';
 import { TrashIcon } from '@heroicons/react/solid';
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, Table } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -7,24 +9,27 @@ import auth from '../../firebase.init';
 
 const MyItems = () => {
     const [user] = useAuthState(auth);
-    const email = user?.email;
+    
     const [myItems, setMyItems] = useState([]);
     
     useEffect(() => {
-        const email = user.email;
-        const url = `http://localhost:5000/bikes?email=${email}`;
+       
 
-        fetch(url)
-        .then(res => res.json())
-        .then(data => setMyItems(data))
-    },[])
+       const getMytems = async() => {
+            const email = user.email;
+            const url = `http://localhost:5000/myItems?email=${email}`;
+            const {data} = await axios.get(url);
+            setMyItems(data)
+       }
+      getMytems(); 
+      
+    },[user,myItems])
 
     const tableHeadTitles = ["Item Name", "Price", "Quantity","Supplier","Img","Delete"]
 
     const handleDeleteItem = id => {
         const proceed = window.confirm("Are you sure you want to delete this item?");
         if(proceed){
-            console.log('deleting the item with id:',id);
             const url = `http://localhost:5000/bike/${id}`;
 
             fetch(url, {
@@ -39,7 +44,7 @@ const MyItems = () => {
 
     return (
         <div className='mx-5'>
-            <h1 className='text-center my-4'>All Items</h1>
+            <h1 className='text-center my-4'>My Items</h1>
             <Button className='d-block ms-auto' variant='danger'>Add Items</Button>
             <Table responsive className='text-center'>
                 <thead>

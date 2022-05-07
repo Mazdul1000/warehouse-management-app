@@ -1,0 +1,9 @@
+#nav-bar{
+   
+   font-weight: bold;
+}
+
+.login-btn:focus{
+    outline: none;
+    box-shadow: none;
+}

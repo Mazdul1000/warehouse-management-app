@@ -5,19 +5,19 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import CustomLink from '../CustomLink/CustomLink';
+import './Header.css';
 const Header = () => {
     const navigate = useNavigate();
     const [user] = useAuthState(auth);
 
     const navigateToHome = () => navigate('/');
     const navigateToLogin = () => navigate('/login');
-    console.log(user)
 
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar id='nav-bar' collapseOnSelect expand="lg" bg="white">
                 <Container>
-                    <Navbar.Brand onClick={navigateToHome} style={{ cursor: 'pointer' }} >Bike House</Navbar.Brand>
+                    <Navbar.Brand className='fs-2' onClick={navigateToHome} style={{ cursor: 'pointer' }} >Bike House</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
@@ -39,15 +39,11 @@ const Header = () => {
                         <Nav>
                           {
                              user?
-                                <Nav.Link as={Button} variant='success' style={{color:'#fff',fontWeight:'bold',padding:'5px 20px'}} onClick={()=>signOut(auth)}  >Log Out</Nav.Link>
+                                <Nav.Link className='login-btn' as={Button} variant='danger' style={{color:'#fff',fontWeight:'bold',padding:'5px 20px'}} onClick={()=>signOut(auth)}  >Log Out</Nav.Link>
                               :
                          
-                            <Nav.Link as={Button} variant='success' style={{color:'#fff',fontWeight:'bold',padding:'5px 20px'}} onClick={navigateToLogin}  >Login</Nav.Link>
+                            <Nav.Link className='login-btn' variant='danger' as={Button} style={{color:'#fff',fontWeight:'bold',padding:'5px 20px'}} onClick={navigateToLogin}  >Login</Nav.Link>
                              }
-                             {user?.displayName?
-                              <h4 style={{color:'#fff',marginLeft:'7px'}}>{user.displayName}</h4>
-                              :
-                             <p></p>}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

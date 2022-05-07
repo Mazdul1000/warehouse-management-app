@@ -8,7 +8,7 @@ import {Row} from 'react-bootstrap';
 const Home = () => {
     const [inventoryItems,setInventoryItems] = useInventoryItems();
 
-    console.log(inventoryItems);
+    
     return (
         <div style={{padding:"0 50px"}}>
             <h1>This is Home Section</h1>

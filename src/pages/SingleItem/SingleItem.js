@@ -24,11 +24,11 @@ const SingleItem = () => {
             <h3>Type: {type}</h3>
             <h3>Brand: {brand}</h3>
             <h3>Supplier: {supplierName}</h3>
-            <h3>Displacement: {Displacement}</h3>
-            <h3>Engine Type: {engineType}</h3>
+            <h3>Displacement: {Displacement ? Displacement : 'N/A'}</h3>
+            <h3>Engine Type: {engineType? engineType : 'N/A'}</h3>
             <h3>Breaking System: {brakingSystem}</h3>
-            <h3>Maximum Power: {maximumPower}</h3>
-            <h3>Maximum Torque: {maximumTorque}</h3>
+            <h3>Maximum Power: {maximumPower ? maximumPower : 'N/A'}</h3>
+            <h3>Maximum Torque: {maximumTorque ? maximumTorque : 'N/A'}</h3>
             <h3>Quantity: {exactQuantity}</h3>
             <h3>Description: {description}</h3>
 
