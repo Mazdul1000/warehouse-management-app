@@ -14,17 +14,20 @@ const Inventory = ({ item }) => {
 <Card>
   <Card.Img variant="top" src={img} />
   <Card.Body>
-    <Card.Title>{name}</Card.Title>
-    <Card.Text>
+    <Card.Title className='text-center fw-bold'>{name}</Card.Title>
+    <Card.Text className='fw-bold'>
     <p>Price: {price}</p>   
     <p>Supplier Name: {supplierName}</p>
     <p>Quantity: {quantity}</p> 
     <p>id: {_id}</p>
     </Card.Text>
     <Card.Text>
-     Description: {description}...<span className="fw-bold">See More</span>
+     <span className='fw-bold'>Description:</span> {description}...<span className="fw-bold">See More</span>
     </Card.Text>
-    <Button onClick={() => navigateToSingleItem(_id)} variant='primary'>Update</Button>
+    <div className='d-flex justify-content-center'>
+      <Button  onClick={() => navigateToSingleItem(_id)} variant='danger'>Update</Button>
+    </div>
+    
   </Card.Body>
 </Card>
 </Col>

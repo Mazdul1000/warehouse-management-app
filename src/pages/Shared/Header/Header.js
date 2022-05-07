@@ -15,7 +15,7 @@ const Header = () => {
 
     return (
         <div>
-            <Navbar id='nav-bar' collapseOnSelect expand="lg" bg="white">
+            <Navbar id='nav-bar' collapseOnSelect expand="lg" bg="light">
                 <Container>
                     <Navbar.Brand className='fs-2' onClick={navigateToHome} style={{ cursor: 'pointer' }} >Bike House</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />

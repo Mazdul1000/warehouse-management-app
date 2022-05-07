@@ -1,0 +1,31 @@
+.featured-title{
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    /* margin: 50px 0 20px; */
+    border-bottom:5px solid #ED1B24;
+}
+
+.brand-title,.featured-title{
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    color: #ED1B24;
+    border-bottom:5px solid #ED1B24;
+}
+
+#brand-section{ 
+    padding: 100px 0;
+    display: flex;
+     justify-content: center;
+     gap: 40px;
+     flex-wrap: wrap;
+ }
+
+
+.brand img{
+    height: 150px;
+    width: 100px;
+}

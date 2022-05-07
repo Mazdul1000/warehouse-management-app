@@ -1,6 +1,7 @@
 #nav-bar{
-   
-   font-weight: bold;
+    font-weight: 600;
+    box-shadow: 0 8px 6px -6px #FF4949;
+    z-index: 10;
 }
 
 .login-btn:focus{
