@@ -1,9 +1,74 @@
-import React from 'react';
+import { TrashIcon } from '@heroicons/react/solid';
+import React, { useEffect, useState } from 'react';
+import { Button, Table } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+
 
 const MyItems = () => {
+    const [user] = useAuthState(auth);
+    const email = user?.email;
+    const [myItems, setMyItems] = useState([]);
+    
+    useEffect(() => {
+        const email = user.email;
+        const url = `http://localhost:5000/bikes?email=${email}`;
+
+        fetch(url)
+        .then(res => res.json())
+        .then(data => setMyItems(data))
+    },[])
+
+    const tableHeadTitles = ["Item Name", "Price", "Quantity","Supplier","Img","Delete"]
+
+    const handleDeleteItem = id => {
+        const proceed = window.confirm("Are you sure you want to delete this item?");
+        if(proceed){
+            console.log('deleting the item with id:',id);
+            const url = `http://localhost:5000/bike/${id}`;
+
+            fetch(url, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+        }
+    }
+
     return (
-        <div>
-            My Items Section
+        <div className='mx-5'>
+            <h1 className='text-center my-4'>All Items</h1>
+            <Button className='d-block ms-auto' variant='danger'>Add Items</Button>
+            <Table responsive className='text-center'>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        {tableHeadTitles.map((title, index) => (
+                            <th key={index}><p>{title}</p></th>
+                        ))}
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        myItems.map((item,index) =>
+                        
+                            <tr key={item._id}>
+                                <td>{index+1}</td>
+                                <td>{item.name}</td>
+                                <td>{item.price}</td>
+                                <td>{item.quantity}</td>
+                                <td>{item.supplierName}</td>
+                                <td><img src={item.img} width="50" alt="" /></td>
+                                <td><span><TrashIcon onClick={() => handleDeleteItem(item._id)} style={{width:'30px',cursor:'pointer',color:'lightgreen'}}></TrashIcon></span></td>
+                            </tr>
+                        )
+                    }
+
+
+                </tbody>
+            </Table>
         </div>
     );
 };
