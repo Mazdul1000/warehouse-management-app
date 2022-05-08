@@ -14,6 +14,7 @@ import SingleItem from './pages/SingleItem/SingleItem';
 import AddItems from './pages/AddItems/AddItems';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from './pages/Shared/Footer/Footer';
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
        <Route path='/register' element={<Register></Register>}></Route>
        <Route path='*' element={<NotFound></NotFound>}></Route>
      </Routes>
+     <Footer></Footer>
     <ToastContainer></ToastContainer>
     </div> 
   );

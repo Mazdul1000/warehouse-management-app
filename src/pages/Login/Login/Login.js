@@ -4,7 +4,9 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
+import Loading from '../../Shared/Loading/Loading';
 import SocialLogin from '../SocialLgoin/SocialLogin';
+import './Login.css'
 
 const Login = () => {
   const emailRef = useRef('');
@@ -19,7 +21,15 @@ const Login = () => {
     error,
   ] = useSignInWithEmailAndPassword(auth);
 
+  let errorElement;
+  if (error) {
+      errorElement = <div> <p style={{color:'#ED1B24',fontWeight:'600'}}>Error: {error?.message}</p></div>
+  }
 
+let loadingElement;
+  if (loading) {
+    loadingElement = <Loading></Loading>;
+}
 
   const handleOnSubmit = e => {
     e.preventDefault();
@@ -38,13 +48,16 @@ const Login = () => {
       toast('Sent email');
     }
     else {
-      toast('please enter your email address');
+      toast('Please enter your email address');
     }
   }
 
   return (
-    <div>
-      <Form onSubmit={handleOnSubmit} className='w-50 mx-auto'>
+
+    <div className='login-section'>
+
+      <Form onSubmit={handleOnSubmit} className='mx-auto mt-5 login-form'>
+      <div className="login-header py-2"><h2>Please Login</h2></div>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" ref={emailRef} placeholder="Enter email" />
@@ -55,15 +68,26 @@ const Login = () => {
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" ref={passwordRef} placeholder="Password" />
         </Form.Group> 
-        <Form.Group className="mb-3 d-flex justify-content-between" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-          <p onClick={resetPassword} style={{fontWeight:'bold',cursor:'pointer'}}>Forgot Password?</p>
+        {errorElement}
+        <Form.Group className="mb-3 d-flex justify-content-between">
+          <div className='d-flex w-100 justify-content-between'>
+            <p onClick={resetPassword} style={{fontWeight:'bold',cursor:'pointer'}}>Forgot Password?</p>
+            <h6>Don't have an account? <span onClick={() => navigate('/register')} style={{cursor:'pointer',color:'#ED1B24',fontWeight:'600'}}>Sign Up</span></h6>
+          </div>
+          
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
+        <div className='d-flex justify-content-center'><Button className='text-center px-5' variant="danger" type="submit">
+          Login
         </Button>
-        <h4>Don't have an account? <span onClick={() => navigate('/register')} style={{cursor:'pointer'}}>Sign Up</span></h4>
+        </div>   
+        {loadingElement}
       </Form>
+      <div className='d-flex justify-content-center align-items-center gap-1'>
+       <div className='divider'></div>
+      <div><h3 className='fw-bold'>OR</h3></div>
+      <div className='divider'></div> 
+      </div>
+      
       <SocialLogin></SocialLogin>
     </div>
   );

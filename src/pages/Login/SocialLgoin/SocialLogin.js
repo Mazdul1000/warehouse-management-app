@@ -3,6 +3,8 @@ import { Button } from 'react-bootstrap';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import './SocialLogin.css';
+import googleLogo from '../../../images/icons/google.svg'
 
 const SocialLogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
@@ -15,8 +17,8 @@ const SocialLogin = () => {
         navigate('/home');
     }
     return (
-        <div>
-            <Button onClick={() => signInWithGoogle()} className='google-login-btn btn-success text-center d-flex justify-content-center align-items-center'><span></span><span>Continue With Google</span></Button>
+        <div className='social-login'>
+            <Button onClick={() => signInWithGoogle()} className='google-login-btn btn-danger text-center d-flex justify-content-center align-items-center'><span><img src={googleLogo} alt="" /></span><span className='ms-2 fw-bold'>Continue With Google</span></Button>
         </div>
     );
 };
