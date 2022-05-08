@@ -43,7 +43,7 @@ const MyItems = () => {
     }
 
     return (
-        <div className='mx-5'>
+        <div className='mx-5' style={{height:'80vh'}}>
             <h1 className='text-center my-4'>My Items</h1>
             <Button className='d-block ms-auto' variant='danger'>Add Items</Button>
             <Table responsive className='text-center'>

@@ -28,7 +28,7 @@
 
 .blog p{
     font-size: 20px;
-    padding:0 50px;
+    /* padding:0 50px; */
 }
 
 .question-icon{
@@ -43,3 +43,4 @@
     color: #ED1B24;
     margin-right: 7px;
 }
+

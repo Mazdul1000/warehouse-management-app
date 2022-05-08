@@ -5,7 +5,7 @@ import './Blogs.css'
 const Blogs = () => {
     return (
         <div className='blogs'>
-            <h1 className="blogs-header">Read My Blogs</h1>
+            <h1 className="blogs-header">Read Our Blogs</h1>
 
             <div className="blog">
                 <h4><QuestionMarkCircleIcon className='question-icon'></QuestionMarkCircleIcon>Difference between javascript and nodejs </h4>

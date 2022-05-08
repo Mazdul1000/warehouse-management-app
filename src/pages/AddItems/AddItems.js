@@ -36,7 +36,7 @@ const AddItems = () => {
         <div>
           <Container>
 
-          <h1 className="text-center my-4">Add New Item</h1>
+          <h1 s className="add-item-title text-center my-4">Add New Item</h1>
 
 <form className='add-form' onSubmit={handleSubmit(onSubmit)}>
 <input className="form-group" type="text" placeholder="Bike Name" {...register("name", {required: true})} />

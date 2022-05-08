@@ -45,8 +45,7 @@ const Register = () => {
         const confirmPassword = confirmPasswordRef.current.value;
         const displayName = usernameRef.current.value;
         if (password !== confirmPassword) {
-            alert('passwords didnt match')
-            errorElement =  <div> <p style={{color:'#ED1B24',fontWeight:'600'}}>Passwords didn't match</p></div>
+           alert('passwords didn"t match')
             return;
         }
 

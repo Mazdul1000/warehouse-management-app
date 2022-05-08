@@ -1,3 +1,9 @@
+
+.add-item-title{
+    color: #ED1B24;
+    font-weight: bold;
+}
+
 .add-form{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -13,8 +19,21 @@
 }
 
 .submit-btn{
-    background-color: black;
+    background-color: #ED1B24;
     color: white;
     font-weight: bold;
     border-radius: 10px;
+    outline: none;
+    border: none;
+    transition: all 0.3s;
+}
+.submit-btn:active{
+    transform: scale(.98);
+}
+
+@media  only screen and (max-width:768px) {
+    .add-form{
+        grid-template-columns: 1fr;
+    }
+   
 }
