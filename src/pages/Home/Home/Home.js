@@ -14,13 +14,12 @@ const Home = () => {
 
     return (
         <div>
-
             <Banner></Banner>
 
-            <div className="features position-relative mt-5">
+            <div className="position-relative mt-5">
             <h1 className="text-center featured-title">Featured Items</h1>
 
-                <Row xs={1} md={2} xl={3} className="g-4 pt-5">
+                <Row style={{padding:'100px 0 50px'}} xs={1} md={2} xl={3} className="g-4">
                     {
                         inventoryItems.map(item => <Inventory key={item.id} item={item}></Inventory>)
                     }

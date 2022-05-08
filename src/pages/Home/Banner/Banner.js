@@ -7,7 +7,7 @@ const Banner = () => {
     const navigate = useNavigate();
     return (
         <div className='banner'>
-            <div className='banner-title'><h1 className='text-center'>The Bike House LTD</h1></div>
+            <div className='banner-title'><h1 className='text-center fw-bold'>The Bike House LTD</h1></div>
             
             <Row className='banner-info'>
                 <Col md={6}>

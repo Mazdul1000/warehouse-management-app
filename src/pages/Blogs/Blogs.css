@@ -1,0 +1,45 @@
+.blogs{
+    margin:50px 0;
+}
+
+.blog{
+    margin: 50px 20px;
+    border: 1px solid #212529; 
+    padding: 20px 50px;
+    color: #212529;
+    
+}
+
+.blogs-header{
+    text-align: center;
+    border-bottom:5px solid #ED1B24;
+    width: 30%;
+    padding-bottom: 15px;
+    margin: 0 auto;
+    color: #ED1B24;
+    font-weight: 600;
+    
+}
+
+.blog h4{
+     font-size: 24px;
+     color: #ED1B24;
+}
+
+.blog p{
+    font-size: 20px;
+    padding:0 50px;
+}
+
+.question-icon{
+    height: 40px;
+    width: 40px;
+    vertical-align: middle;
+}
+
+.answer{
+    font-size: 22px;
+    font-weight: bold;
+    color: #ED1B24;
+    margin-right: 7px;
+}

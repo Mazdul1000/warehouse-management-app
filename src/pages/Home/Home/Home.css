@@ -3,7 +3,6 @@
     font-weight: 700;
     font-size: 36px;
     /* margin: 50px 0 20px; */
-    border-bottom:5px solid #ED1B24;
 }
 
 .brand-title,.featured-title{
@@ -13,7 +12,7 @@
     transform: translateX(-50%);
     display: inline-block;
     color: #ED1B24;
-    border-bottom:5px solid #ED1B24;
+    border-bottom:4px solid #ED1B24;
 }
 
 #brand-section{ 
@@ -28,4 +27,14 @@
 .brand img{
     height: 150px;
     width: 100px;
+}
+
+
+@media screen and (max-width:768px) {
+    .brand-title,
+    .featured-title{
+        font-size: 28px;
+    }
+    
+    
 }
