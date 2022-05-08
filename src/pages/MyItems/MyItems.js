@@ -17,7 +17,7 @@ const MyItems = () => {
 
        const getMytems = async() => {
             const email = user.email;
-            const url = `http://localhost:5000/myItems?email=${email}`;
+            const url = `https://bike-house-34.herokuapp.com/myItems?email=${email}`;
             const {data} = await axios.get(url);
             setMyItems(data)
        }
@@ -30,7 +30,7 @@ const MyItems = () => {
     const handleDeleteItem = id => {
         const proceed = window.confirm("Are you sure you want to delete this item?");
         if(proceed){
-            const url = `http://localhost:5000/bike/${id}`;
+            const url = `https://bike-house-34.herokuapp.com/bike/${id}`;
 
             fetch(url, {
                 method: 'DELETE'

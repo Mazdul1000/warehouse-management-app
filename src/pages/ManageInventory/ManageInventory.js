@@ -11,7 +11,7 @@ const ManageInventory = () => {
         const proceed = window.confirm("Are you sure you want to delete this item?");
         if(proceed){
             console.log('deleting the item with id:',id);
-            const url = `http://localhost:5000/bike/${id}`;
+            const url = `https://bike-house-34.herokuapp.com/bike/${id}`;
 
             fetch(url, {
                 method: 'DELETE'

@@ -14,7 +14,7 @@ const AddItems = () => {
         console.log(data);
         const email = user.email;
         data.email = email;
-        const url = `http://localhost:5000/bikes`;
+        const url = `https://bike-house-34.herokuapp.com/bikes`;
         fetch(url, {
             method: 'POST',
             headers: {
