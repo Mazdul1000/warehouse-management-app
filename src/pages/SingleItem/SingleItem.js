@@ -4,20 +4,22 @@ import { useParams } from 'react-router-dom';
 import useSingleItem from '../../hooks/useSingleItem';
 import { ArrowCircleRightIcon } from '@heroicons/react/solid';
 import { toast } from 'react-toastify';
+import { useForm } from 'react-hook-form';
 
 const SingleItem = () => {
     const { itemId } = useParams();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const [singleItem, setSingleItem] = useSingleItem(itemId);
-    const { _id, name, price, type, brand, supplierName, description, img, brakingSystem, maximumTorque, maximumPower,quantity, Displacement, engineType } = singleItem;
+    const { name, price, type, brand, supplierName, description, img, brakingSystem, maximumTorque, maximumPower, quantity, Displacement, engineType } = singleItem;
 
 
 
 
     const handleDeliveredBtn = id => {
-        
+
         const { quantity, ...rest } = singleItem;
-        if(quantity < 1){
+        if (quantity < 1) {
             return;
         }
 
@@ -25,22 +27,47 @@ const SingleItem = () => {
         const updatedItem = { ...rest, quantity: newQuantity }
         setSingleItem(updatedItem);
         const url = `https://bike-house-34.herokuapp.com/bikes/${id}`;
-         fetch(url, {
-           method: 'PUT',
-           headers: {
-               'content-type': 'application/json'
-           },
-           body: JSON.stringify(updatedItem)  
-         })
-         .then(res => res.json())
-         .then(data => {
-             console.log('success',data);
-             toast('Item delivered');
-         })
-        
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedItem)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('success', data);
+                toast('Item delivered');
+            })
     }
+
+    const updateStock = data => {
+        console.log(data);
+        if (data.quantity <= 0) {
+            return toast('Please Enter Valid Amount');
+        }
+        const { quantity, ...rest } = singleItem;
+        const newQuantity = parseInt(quantity) + parseInt(data?.quantity);
+        const updatedItem = { ...rest, quantity: newQuantity }
+        setSingleItem(updatedItem);
+        const url = `https://bike-house-34.herokuapp.com/bikes/${itemId}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedItem)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+                toast("Item Stock Updated!!!");
+                reset();
+            })
+
+    };
     return (
-        <div>
+        <div style={{padding:'0 20px'}}>
             <Container>
 
                 <div className='d-flex justify-content-center'> <img className='w-50 mx-auto' src={img} alt="" /> </div>
@@ -66,7 +93,16 @@ const SingleItem = () => {
                 <div className="description mb-4"><h3 className='mt-4'> <span className='fw-bold'>Description:</span>  {description}</h3></div>
 
 
-                <Button variant='danger' onClick={() => handleDeliveredBtn(_id)}>Delivered</Button>
+                <Button variant='danger' onClick={() => handleDeliveredBtn(itemId)}>Delivered</Button>
+
+                <div className='p-5 d-flex flex-column align-items-center justify-content-center gap-3'>
+                    <div><h3 style={{color:'#ED1B24',fontWeight:'bold'}}>Update Stock</h3></div>
+                    <form className="update-form" onSubmit={handleSubmit(updateStock)}>
+                        <input className="form-group" type="number" placeholder="Quantity" {...register("quantity", { required: false })} />
+                        <div className='d-flex justify-content-center'><input type="submit" style={{backgroundColor:'#000',color:'#fff',fontWeight:'bold',marginTop:'20px',borderRadius:'10px',padding:'10px 30px'}} value="Update Stock" /></div>
+                    </form>
+                </div>
+
             </Container>
 
 
