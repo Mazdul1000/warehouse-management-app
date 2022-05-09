@@ -30,8 +30,8 @@ const ManageInventory = () => {
   }
 
     return (
-        <div className='mx-5' style={{height:'80vh'}}>
-            <h1 className='text-center my-4'>All Items</h1>
+        <div className='mx-5' style={{height: '100%'}}>
+            <h1 className='text-center my-4' style={{color:'#ED1B24',fontWeight:'bold'}}>All Items</h1>
             <Button onClick={()=> navigate('/addItems')} className='d-block ms-auto' variant='danger'>Add Items</Button>
             <Table responsive className='text-center'>
                 <thead>
@@ -53,7 +53,7 @@ const ManageInventory = () => {
                                 <td>{item.quantity}</td>
                                 <td>{item.supplierName}</td>
                                 <td><img src={item.img} width="50" alt="" /></td>
-                                <td><span><TrashIcon onClick={() => handleDeleteItem(item._id)} style={{width:'30px',cursor:'pointer',color:'lightgreen'}}></TrashIcon></span></td>
+                                <td><span><TrashIcon onClick={() => handleDeleteItem(item._id)} style={{width:'30px',cursor:'pointer',color:'#ED1B24'}}></TrashIcon></span></td>
                             </tr>
                         )
                     }

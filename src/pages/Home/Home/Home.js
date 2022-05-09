@@ -12,9 +12,6 @@ const Home = () => {
     const [inventoryItems, setInventoryItems] = useInventoryItems();
   
     const cutInventoryItems = inventoryItems.slice(0,6);
-    console.log(cutInventoryItems);
-
-
 
     return (
         <div>
@@ -25,7 +22,7 @@ const Home = () => {
 
                 <Row style={{padding:'100px 0 50px'}} xs={1} md={2} xl={3} className="g-4">
                     {
-                        cutInventoryItems.map(item => <Inventory key={item.id} item={item}></Inventory>)
+                        cutInventoryItems.map(item => <Inventory key={item._id} item={item}></Inventory>)
                     }
 
                 </Row>

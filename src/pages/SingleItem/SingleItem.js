@@ -42,7 +42,7 @@ const SingleItem = () => {
     }
 
     const updateStock = data => {
-        console.log(data);
+        
         if (data.quantity <= 0) {
             return toast('Please Enter Valid Amount');
         }
@@ -60,7 +60,6 @@ const SingleItem = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result);
                 toast("Item Stock Updated!!!");
                 reset();
             })

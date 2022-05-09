@@ -4,6 +4,7 @@ import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-fireb
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../../firebase.init';
+import useToken from '../../../hooks/useToken';
 import Loading from '../../Shared/Loading/Loading';
 import SocialLogin from '../SocialLgoin/SocialLogin';
 
@@ -12,7 +13,8 @@ const Register = () => {
     const passwordRef = useRef('');
     const confirmPasswordRef = useRef('');
     const usernameRef = useRef('');
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    
     const [
         createUserWithEmailAndPassword,
         user,
@@ -20,7 +22,7 @@ const Register = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-
+    const [token] = useToken(user);
     let errorElement;
     if (error || updateError) {
         errorElement = <div> <p style={{color:'#ED1B24',fontWeight:'600'}}>Error: {error?.message}</p></div>
@@ -32,7 +34,7 @@ const Register = () => {
         loadingElement = <Loading></Loading>;
     }
 
-    if (user) {
+    if (token) {
         navigate('/home');
     }
 

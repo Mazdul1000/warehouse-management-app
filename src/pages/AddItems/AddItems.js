@@ -72,9 +72,9 @@ const AddItems = () => {
 <option value="Single Channel ABS">Single Channel ABS</option>
 </select>
 <input className="form-group" type="url" placeholder="ImageURL" {...register("img", {required: true})} />
-<textarea className="form-group" placeholder='Description' {...register("description", {required: true, maxLength: 500})} />
+<textarea className="form-group" style={{height:'80px',resize:'none'}} placeholder='Description' {...register("description", {required: true, maxLength: 1000})} />
 
-<input className="submit-btn" type="submit" />
+<input style={{height:'50px'}} className="submit-btn" type="submit" />
 </form>
    </Container>
            

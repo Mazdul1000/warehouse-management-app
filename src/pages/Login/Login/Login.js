@@ -1,9 +1,11 @@
+import axios from 'axios';
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
+import useToken from '../../../hooks/useToken';
 import Loading from '../../Shared/Loading/Loading';
 import SocialLogin from '../SocialLgoin/SocialLogin';
 import './Login.css'
@@ -13,6 +15,8 @@ const Login = () => {
   const passwordRef = useRef('');
   const navigate = useNavigate();
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || '/';
 
   const [
     signInWithEmailAndPassword,
@@ -26,19 +30,25 @@ const Login = () => {
       errorElement = <div> <p style={{color:'#ED1B24',fontWeight:'600'}}>Error: {error?.message}</p></div>
   }
 
+
 let loadingElement;
   if (loading) {
     loadingElement = <Loading></Loading>;
 }
 
-  const handleOnSubmit = e => {
+const [token] = useToken(user);
+
+if (token) {
+  navigate(from, { replace: true });
+}
+  const handleOnSubmit = async e => {
     e.preventDefault();
 
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
 
-    signInWithEmailAndPassword(email, password);
-    console.log(email, password);
+   await signInWithEmailAndPassword(email, password);
+    
   }
 
   const resetPassword = async () => {
