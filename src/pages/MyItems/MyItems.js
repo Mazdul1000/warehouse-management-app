@@ -43,6 +43,10 @@ const MyItems = () => {
         }
     }
 
+    const navigateToSingleItem = id =>{
+      navigate(`/inventory/${id}`);
+  }
+
     return (
         <div className='mx-5' style={{height:'80vh'}}>
             <h1 className='text-center my-4'>My Items</h1>
@@ -62,7 +66,7 @@ const MyItems = () => {
                         
                             <tr key={item._id}>
                                 <td>{index+1}</td>
-                                <td>{item.name}</td>
+                                <td><span className='fw-bold' style={{cursor:'pointer'}} onClick={() => navigateToSingleItem(item._id)}>{item.name}</span></td>
                                 <td>{item.price}</td>
                                 <td>{item.quantity}</td>
                                 <td>{item.supplierName}</td>

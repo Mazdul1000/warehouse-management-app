@@ -14,12 +14,11 @@ const Inventory = ({ item }) => {
 <Card>
   <Card.Img variant="top" src={img} />
   <Card.Body>
-    <Card.Title className='text-center fw-bold'>{name}</Card.Title>
+    <Card.Title className='text-center fw-bold'><span onClick={() => navigateToSingleItem(_id)} style={{cursor:'pointer'}}>{name}</span></Card.Title>
     <Card.Text className='fw-bold'>
     <p>Price: {price}</p>   
     <p>Supplier Name: {supplierName}</p>
     <p>Quantity: {quantity}</p> 
-    <p>id: {_id}</p>
     </Card.Text>
     <Card.Text>
      <span className='fw-bold'>Description:</span> {description.slice(0,100)}...<span className="fw-bold">See More</span>

@@ -37,14 +37,14 @@ const Home = () => {
                 <div><h1 className='brand-title text-center fw-bold'>Brands</h1></div>
            
                 <div id="brand-section">
-                    <div class="brand"><img src="https://i.ibb.co/kBsNtHk/honda-bike-vector.jpg" alt="" /></div>
-                    <div class="brand"><img src="https://i.ibb.co/2MBbzT6/hero-motocorp-logo.png" alt="" /></div>
-                    <div class="brand"><img src="https://i.ibb.co/WDBT61f/bajaj-logo-vector.png" alt="" /></div>
-                    <div class="brand"><img src="https://i.ibb.co/svwws7r/yamaha-motor-vector-logo.png" alt="" /></div>
-                    <div class="brand"><img src="https://i.ibb.co/8j57Gh5/tvs-vector-logo.png" alt="" /></div>
-                    <div class="brand"><img src="https://i.ibb.co/tsZmytK/suzuki-eps-vector-logo.png" alt="" /></div>
-                    <div class="brand"><img src="https://i.ibb.co/NLgHg59/lifan-vector-logo.png" alt="" /></div>
-                    <div class="brand"><img src="https://i.ibb.co/nL4c33L/kawasaki-logo-01.png" alt="" /></div>
+                    <div className="brand"><img src="https://i.ibb.co/kBsNtHk/honda-bike-vector.jpg" alt="" /></div>
+                    <div className="brand"><img src="https://i.ibb.co/2MBbzT6/hero-motocorp-logo.png" alt="" /></div>
+                    <div className="brand"><img src="https://i.ibb.co/WDBT61f/bajaj-logo-vector.png" alt="" /></div>
+                    <div className="brand"><img src="https://i.ibb.co/svwws7r/yamaha-motor-vector-logo.png" alt="" /></div>
+                    <div className="brand"><img src="https://i.ibb.co/8j57Gh5/tvs-vector-logo.png" alt="" /></div>
+                    <div className="brand"><img src="https://i.ibb.co/tsZmytK/suzuki-eps-vector-logo.png" alt="" /></div>
+                    <div className="brand"><img src="https://i.ibb.co/NLgHg59/lifan-vector-logo.png" alt="" /></div>
+                    <div className="brand"><img src="https://i.ibb.co/nL4c33L/kawasaki-logo-01.png" alt="" /></div>
                 </div>
 
             </section>
