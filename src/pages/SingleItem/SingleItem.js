@@ -24,18 +24,18 @@ const SingleItem = () => {
 <Row className='mt-4'>
     <Col md={6} >
         
-        <h3 className='mt-4'><span><ArrowCircleRightIcon style={{width:'30px'}}></ArrowCircleRightIcon></span> Price: {price}</h3>
-        <h3 className='mt-4'><span><ArrowCircleRightIcon style={{width:'30px'}}></ArrowCircleRightIcon></span> Type: {type}</h3>
-        <h3 className='mt-4'><span><ArrowCircleRightIcon style={{width:'30px'}}></ArrowCircleRightIcon></span> Brand: {brand}</h3>
-        <h3 className='mt-4'><span><ArrowCircleRightIcon style={{width:'30px'}}></ArrowCircleRightIcon></span> Supplier: {supplierName}</h3>
-        <h3 className='mt-4'><span><ArrowCircleRightIcon style={{width:'30px'}}></ArrowCircleRightIcon></span> Displacement: {Displacement ? Displacement : 'N/A'}</h3>
+        <h3 className='mt-4'><span><ArrowCircleRightIcon style={{width:'30px'}}></ArrowCircleRightIcon></span> <span className='fw-bold'>Price:</span> {price}</h3>
+        <h3 className='mt-4'><span><ArrowCircleRightIcon style={{width:'30px'}}></ArrowCircleRightIcon></span> <span className='fw-bold'>Type:</span> {type}</h3>
+        <h3 className='mt-4'><span><ArrowCircleRightIcon style={{width:'30px'}}></ArrowCircleRightIcon></span> <span className='fw-bold'>Brand:</span> {brand}</h3>
+        <h3 className='mt-4'><span><ArrowCircleRightIcon style={{width:'30px'}}></ArrowCircleRightIcon></span> <span className='fw-bold'>Supplier:</span> {supplierName}</h3>
+        <h3 className='mt-4'><span><ArrowCircleRightIcon style={{width:'30px'}}></ArrowCircleRightIcon></span> <span className='fw-bold'>Quantity:</span> {quantity}</h3>
+        <h3 className='mt-4'><span><ArrowCircleRightIcon style={{width:'30px'}}></ArrowCircleRightIcon></span> <span className='fw-bold'>Displacement:</span> {Displacement ? Displacement : 'N/A'}</h3>
     </Col>
     <Col md={6} >
-        <h3 className='mt-4'><span><ArrowCircleRightIcon style={{width:'30px'}}></ArrowCircleRightIcon></span> Engine Type: {engineType ? engineType : 'N/A'}</h3>
-        <h3 className='mt-4'><span><ArrowCircleRightIcon style={{width:'30px'}}></ArrowCircleRightIcon></span> Breaking System: {brakingSystem}</h3>
-        <h3 className='mt-4'><span><ArrowCircleRightIcon style={{width:'30px'}}></ArrowCircleRightIcon></span> Maximum Power: {maximumPower ? maximumPower : 'N/A'}</h3>
-        <h3 className='mt-4'><span><ArrowCircleRightIcon style={{width:'30px'}}></ArrowCircleRightIcon></span> Maximum Torque: {maximumTorque ? maximumTorque : 'N/A'}</h3>
-        <h3 className='mt-4'><span><ArrowCircleRightIcon style={{width:'30px'}}></ArrowCircleRightIcon></span> Quantity: {quantity}</h3>
+        <h3 className='mt-4'><span><ArrowCircleRightIcon style={{width:'30px'}}></ArrowCircleRightIcon></span> <span className='fw-bold'>Engine Type:</span> {engineType ? engineType : 'N/A'}</h3>
+        <h3 className='mt-4'><span><ArrowCircleRightIcon style={{width:'30px'}}></ArrowCircleRightIcon></span> <span className='fw-bold'>Breaking System:</span> {brakingSystem}</h3>
+        <h3 className='mt-4'><span><ArrowCircleRightIcon style={{width:'30px'}}></ArrowCircleRightIcon></span> <span className='fw-bold'>Maximum Power:</span> {maximumPower ? maximumPower : 'N/A'}</h3>
+        <h3 className='mt-4'><span><ArrowCircleRightIcon style={{width:'30px'}}></ArrowCircleRightIcon></span> <span className='fw-bold'>Maximum Torque:</span> {maximumTorque ? maximumTorque : 'N/A'}</h3>
     </Col>
 </Row>
 

@@ -29,7 +29,7 @@ const Header = () => {
                             <Nav className='ms-auto'>
                             <Nav.Link as={CustomLink} to='/manageInventory'>Manage Inventory</Nav.Link>
                             <Nav.Link as={CustomLink} to='/myItems'>My Items</Nav.Link>
-                            <Nav.Link as={CustomLink} to='/AddItems'>Add Items</Nav.Link> 
+                            <Nav.Link as={CustomLink} to='/addItems'>Add Items</Nav.Link> 
                             </Nav>                              
                             :''
                             }

@@ -1,0 +1,8 @@
+.not-found{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ED1B24;
+    font-weight: bold;
+}

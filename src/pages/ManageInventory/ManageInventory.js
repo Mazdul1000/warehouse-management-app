@@ -2,10 +2,12 @@ import React from 'react';
 import { Button, Table } from 'react-bootstrap';
 import useInventoryItems from '../../hooks/useInventoryItems';
 import { TrashIcon } from '@heroicons/react/solid';
+import { useNavigate } from 'react-router-dom';
 
 const ManageInventory = () => {
     const [inventoryItems, setInventoryItems] = useInventoryItems();
-    const tableHeadTitles = ["Item Name", "Price", "Quantity","Supplier","Img","Delete"]
+    const tableHeadTitles = ["Item Name", "Price", "Quantity","Supplier","Img","Delete"];
+    const navigate = useNavigate();
 
     const handleDeleteItem = id => {
         const proceed = window.confirm("Are you sure you want to delete this item?");
@@ -26,7 +28,7 @@ const ManageInventory = () => {
     return (
         <div className='mx-5' style={{height:'80vh'}}>
             <h1 className='text-center my-4'>All Items</h1>
-            <Button className='d-block ms-auto' variant='danger'>Add Items</Button>
+            <Button onClick={()=> navigate('/addItems')} className='d-block ms-auto' variant='danger'>Add Items</Button>
             <Table responsive className='text-center'>
                 <thead>
                     <tr>

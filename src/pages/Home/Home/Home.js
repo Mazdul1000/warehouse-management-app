@@ -56,7 +56,7 @@ const Home = () => {
                    <div className='text-center'><h1 style={{color:'#ED1B24'}}>Providing the <span style={{fontWeight:'bold'}}>Best Brands At The Best Price</span></h1></div>
                     </Col>
 
-                    <Col md={6} className='px-5'>
+                    <Col md={6} className='px-5 mt-4'>
                      <div className='text-center'>
                          <h2 style={{fontWeight:'bold'}}>Motorcycle Warehouse</h2>
                           <p>We stock extensive range of Bikes. That includes Sports Bike, Naked Sports Bike, Cruiser Bike etc. You will get the best deal from us</p>

@@ -36,7 +36,7 @@ const AddItems = () => {
         <div>
           <Container>
 
-          <h1 s className="add-item-title text-center my-4">Add New Item</h1>
+          <h1 className="add-item-title text-center my-4">Add New Item</h1>
 
 <form className='add-form' onSubmit={handleSubmit(onSubmit)}>
 <input className="form-group" type="text" placeholder="Bike Name" {...register("name", {required: true})} />
@@ -72,11 +72,11 @@ const AddItems = () => {
 <option value="Single Channel ABS">Single Channel ABS</option>
 </select>
 <input className="form-group" type="url" placeholder="ImageURL" {...register("img", {required: true})} />
-<textarea className="form-group" placeholder='Description' {...register("description", {required: true, maxLength: 201})} />
+<textarea className="form-group" placeholder='Description' {...register("description", {required: true, maxLength: 500})} />
 
 <input className="submit-btn" type="submit" />
 </form>
-          </Container>
+   </Container>
            
         </div>
     );

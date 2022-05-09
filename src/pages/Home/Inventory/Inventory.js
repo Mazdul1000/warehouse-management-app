@@ -22,7 +22,7 @@ const Inventory = ({ item }) => {
     <p>id: {_id}</p>
     </Card.Text>
     <Card.Text>
-     <span className='fw-bold'>Description:</span> {description}...<span className="fw-bold">See More</span>
+     <span className='fw-bold'>Description:</span> {description.slice(0,100)}...<span className="fw-bold">See More</span>
     </Card.Text>
     <div className='d-flex justify-content-center'>
       <Button  onClick={() => navigateToSingleItem(_id)} variant='danger'>Update</Button>

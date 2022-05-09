@@ -4,12 +4,13 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, Table } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 
 const MyItems = () => {
     const [user] = useAuthState(auth);
-    
+    const navigate = useNavigate()
     const [myItems, setMyItems] = useState([]);
     
     useEffect(() => {
@@ -45,7 +46,7 @@ const MyItems = () => {
     return (
         <div className='mx-5' style={{height:'80vh'}}>
             <h1 className='text-center my-4'>My Items</h1>
-            <Button className='d-block ms-auto' variant='danger'>Add Items</Button>
+            <Button onClick={()=> navigate('/addItems')} className='d-block ms-auto' variant='danger'>Add Items</Button>
             <Table responsive className='text-center'>
                 <thead>
                     <tr>
