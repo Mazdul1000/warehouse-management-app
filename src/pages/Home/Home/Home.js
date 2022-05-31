@@ -10,7 +10,7 @@ import Footer from '../../Shared/Footer/Footer';
 
 const Home = () => {
     const [inventoryItems, setInventoryItems] = useInventoryItems();
-  
+//   home
     const cutInventoryItems = inventoryItems.slice(0,6);
 
     return (
