@@ -8,10 +8,19 @@
 
 ## Features
 
-* This app has full athentication system.
-* This site has connected with real backend server.
-* This app has real database that is connected with MongoDB database.
-* Node MongoDB CRUD operation has been used in this app.
-* This is a Single Page Application.
-* User can add, delete, update item in this app.
+* Responsive website designed with React-Bootstrap
+* Used Node.js for backend and MongoDB as database
+* Node MongoDB CRUD operation has been implemented in this app
+* Implemented authentication system via firebase
+* User can add, delete, update item on this application.
+* User can see my items route where they will see the productes added by tehm
 
+## Technologies
+ * React
+ * React-Bootstrap
+ * Node.js
+ * Express.js
+ * MongoDB
+ * React router
+ * Firebase
+ * JWT
